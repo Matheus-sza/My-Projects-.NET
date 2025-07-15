@@ -1,0 +1,61 @@
+public class Informacoes
+{
+    static void Main()
+    {
+        Console.Write("Cadastro\nCrie um nome de usuario: ");
+        var name = Console.ReadLine();
+
+        Console.Write("Crie uma senha: ");
+        var password = Console.ReadLine();
+
+        Console.Write("Digite sua idade: ");
+        int age = Convert.ToInt32(Console.ReadLine());
+
+        CheckAge(age);
+        #pragma warning disable CS8604
+        Login(name, password);
+        #pragma warning restore CS8604
+    }
+
+    static bool Login(string name, string password)
+    {
+        bool canLogin = false;
+
+        Console.Write("Login\nDigite seu nome de usuario: ");
+        var nameR = Console.ReadLine();
+
+        Console.Write("Digite sua senha: ");
+        var passwordR = Console.ReadLine();
+
+        if (nameR != name || passwordR != password)
+        {
+            Console.WriteLine("Inisra suas informações corretamente! Aperte enter");
+            Console.ReadLine();
+            Login();
+        }
+
+        else
+        {
+            canLogin = true;
+        }
+
+        return canLogin;
+    }
+    static int CheckAge(int age)
+    {
+        if (age < 14)
+        {
+            Console.Write("Você não pode criar sua conta pois não tem mais de 14 anos! Aperte enter");
+            Console.ReadLine();
+            Main();
+        }
+
+        else if (age >= 99)
+        {
+            Console.Write($"Você não tem {age} anos! Aperte enter");
+            Console.ReadLine();
+            Main();
+        }
+        return age;
+    }
+}
