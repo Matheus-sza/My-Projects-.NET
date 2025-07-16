@@ -12,9 +12,7 @@ public class Informacoes
         int age = Convert.ToInt32(Console.ReadLine());
 
         CheckAge(age);
-        #pragma warning disable CS8604
         Login(name, password);
-        #pragma warning restore CS8604
     }
 
     static bool Login(string name, string password)
